@@ -86,6 +86,8 @@ function newCard() {
 
 function setupCanvas() {
   const rect = canvas.parentElement.getBoundingClientRect();
+
+  // 直接用 cardBox 寬高，保證 canvas 與 prizeImg 一樣大小
   canvas.width = rect.width;
   canvas.height = rect.height;
 
@@ -97,7 +99,7 @@ function setupCanvas() {
     ctx.globalCompositeOperation = "source-over";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 🔹 讓 cover 與 prizeImg 完全一樣尺寸
+    // 🔹 drawImage 使用 canvas 寬高填滿
     ctx.drawImage(cover, 0, 0, canvas.width, canvas.height);
 
     ctx.globalCompositeOperation = "destination-out";

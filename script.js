@@ -96,6 +96,8 @@ function setupCanvas() {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.globalCompositeOperation = "source-over";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 🔹 讓 cover 與 prizeImg 完全一樣尺寸
     ctx.drawImage(cover, 0, 0, canvas.width, canvas.height);
 
     ctx.globalCompositeOperation = "destination-out";

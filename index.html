@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>新年刮刮樂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- 起始畫面 -->
+  <div id="startScreen" class="screen">
+    <h1>🧧 新年刮刮樂</h1>
+    <input id="nickname" placeholder="輸入暱稱">
+    <button id="startBtn">開始刮獎</button>
+  </div>
+
+  <!-- 遊戲畫面 -->
+  <div id="gameScreen" class="screen hidden">
+    <div id="playerName"></div>
+
+    <div id="cardBox">
+      <img id="prizeImg">
+      <canvas id="scratchCanvas"></canvas>
+    </div>
+
+    <button id="newCardBtn">再刮一張</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+<script>
+  // 取得元素
+  const startBtn = document.getElementById("startBtn");
+  const newCardBtn = document.getElementById("newCardBtn");
+  const nicknameInput = document.getElementById("nickname");
+
+  // 點擊開始遊戲
+  startBtn.addEventListener("click", () => {
+    const name = nicknameInput.value || "玩家";
+    document.getElementById("playerName").innerText = `你好，${name}`;
+
+    document.getElementById("startScreen").classList.add("hidden");
+    document.getElementById("gameScreen").classList.remove("hidden");
+
+    newCard(); // 顯示第一張卡
+  });
+
+  // 點擊再刮一張
+  newCardBtn.addEventListener("click", () => {
+    newCard(); // 直接呼叫 script.js 的 newCard()
+  });
+
+  // 支援按 Enter 鍵開始遊戲
+  nicknameInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      startBtn.click();
+    }
+  });
+</script>
+
+</body>
+</html>

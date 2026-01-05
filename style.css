@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: none;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle, #ffcc99, #b30000);
+  font-family: "Noto Sans TC", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 9 / 16;
+  background: #fff7e6;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.screen {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: #b30000;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #ff9900, #e60012);
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+#cardBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  margin: 20px 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+#prizeImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.dust {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: gold;
+  border-radius: 50%;
+  animation: fly 0.5s ease-out forwards;
+}
+
+@keyframes fly {
+  from { opacity: 1; transform: translate(0,0); }
+  to {
+    opacity: 0;
+    transform: translate(
+      calc(-20px + 40px * rand()),
+      calc(-20px + 40px * rand())
+    );
+  }
+}

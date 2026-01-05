@@ -1,3 +1,6 @@
+/* =========================
+   全局設定
+   ========================= */
 * {
   box-sizing: border-box;
   user-select: none;
@@ -21,10 +24,17 @@ body {
   background: #fff7e6;
   border-radius: 18px;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 上方對齊，底下留空間 */
 }
 
 .screen {
   text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hidden {
@@ -33,6 +43,7 @@ body {
 
 h1 {
   color: #b30000;
+  margin-top: 0;
 }
 
 input {
@@ -42,7 +53,7 @@ input {
 }
 
 button {
-  margin-top: 16px;
+  margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
   background: linear-gradient(135deg, #ff9900, #e60012);
@@ -51,27 +62,42 @@ button {
   border-radius: 10px;
 }
 
+/* =========================
+   卡片容器
+   ========================= */
 #cardBox {
   position: relative;
   width: 100%;
-  aspect-ratio: 2 / 3;
+  height: 70%;          /* 手機上留 30% 空間給玩家名稱與按鈕 */
   margin: 20px 0;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff7e6;
 }
 
+/* 刮刮卡圖片 */
 #prizeImg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;  /* 完整顯示圖片，不裁切 */
 }
 
+/* Canvas 覆蓋在卡片上 */
 canvas {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
+/* =========================
+   金粉效果
+   ========================= */
 .dust {
   position: absolute;
   width: 6px;
@@ -90,4 +116,19 @@ canvas {
       calc(-20px + 40px * rand())
     );
   }
+}
+
+/* =========================
+   玩家名稱與按鈕保持可見
+   ========================= */
+#playerName {
+  font-size: 18px;
+  font-weight: bold;
+  color: #b30000;
+  margin-bottom: 10px;
+}
+
+/* 遊戲按鈕容器自動置底 */
+#gameScreen button {
+  z-index: 10;
 }

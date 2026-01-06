@@ -29,7 +29,7 @@ let isDrawing = false;
 let revealed = false;
 
 /* 刮刮參數 */
-const BRUSH_SIZE = 56;
+const BRUSH_SIZE = 60;
 let scratchCount = 0;
 
 /* 上一點 */

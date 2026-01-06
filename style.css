@@ -28,16 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-/* 🔥【關鍵】預設「沒有背景」 */
-#app {
-  background: transparent;
-}
-
-/* 🔥 只有進入遊戲畫面才給米色底 */
-#gameScreen {
-  background: #fff7e6;
+  background: transparent; /* 🔥 預設透明 */
 }
 
 /* =========================
@@ -52,15 +43,16 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* =========================
    🔴 起始畫面（輸入暱稱）
    ========================= */
 .start-screen {
+  flex: 1;
   justify-content: center;
-  background: transparent; /* 雙保險 */
+  background: transparent; /* ❌ 不要米色底 */
 }
 
 /* Banner */
@@ -87,6 +79,8 @@ body {
   margin-bottom: 12px;
 }
 
+
+
 /* =========================
    按鈕
    ========================= */
@@ -104,30 +98,38 @@ button {
    🧧 遊戲畫面
    ========================= */
 #gameScreen {
+  flex: 1;
+  background: #fff7e6;          /* ✅ 只有遊戲頁有米色底 */
   padding: 14px;
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 玩家名稱 */
+/* 玩家名稱（一定露出） */
 #playerName {
   font-size: 18px;
   font-weight: bold;
   color: #b30000;
   margin-bottom: 8px;
+  flex-shrink: 0;
 }
 
 /* =========================
-   🎴 刮刮卡容器
+   🎴 刮刮卡容器（置中關鍵）
    ========================= */
 #cardBox {
   position: relative;
   width: 100%;
-  height: 65%;
   margin: 12px 0;
   border-radius: 14px;
   overflow: hidden;
-  background: #fff7e6;   /* ✅ 刮刮卡米色底保留 */
+  background: #fff7e6;     /* 刮刮卡米色底保留 */
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+
+  flex-grow: 1;            /* 撐開中間空間 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 刮刮卡圖片 */
@@ -137,12 +139,21 @@ button {
   object-fit: cover;
 }
 
-/* Canvas */
+/* Canvas 覆蓋 */
 canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+/* =========================
+   再刮一次按鈕
+   ========================= */
+#gameScreen button {
+  margin-top: 10px;
+  align-self: center;
+  flex-shrink: 0;
 }
 
 /* =========================

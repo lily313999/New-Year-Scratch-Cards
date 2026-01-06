@@ -119,7 +119,8 @@ button {
    ========================= */
 #cardBox {
   position: relative;
-  width: 100%;
+  width: 90%;         /* 🔹 從100%改成90%，左右留白 */
+  max-height: 50%;    /* 🔹 原本 flex:1/65% 改成最大高度55% */
   margin: 12px 0;
   border-radius: 14px;
   overflow: hidden;

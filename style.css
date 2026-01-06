@@ -103,6 +103,8 @@ button {
   padding: 14px;
   display: flex;
   flex-direction: column;
+  justify-content: center;     /* 🔹 整組垂直置中 */
+  align-items: center;
 }
 
 /* 玩家名稱（一定露出） */

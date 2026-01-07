@@ -99,7 +99,7 @@ button {
    ========================= */
 #gameScreen {
   flex: 1;
-  background: #fff7e6;          /* ✅ 只有遊戲頁有米色底 */
+  background: url("img/game-bg.png") center / cover no-repeat;
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -113,6 +113,14 @@ button {
   font-weight: bold;
   color: #b30000;
   margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+/* 遊戲畫面 Banner */
+.game-banner {
+  width: 90%;
+  max-width: 360px;
+  margin-bottom: 6px;
   flex-shrink: 0;
 }
 

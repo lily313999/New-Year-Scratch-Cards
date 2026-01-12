@@ -51,7 +51,10 @@
     document.getElementById("startScreen").classList.add("hidden");
     document.getElementById("gameScreen").classList.remove("hidden");
 
-    newCard(); // 顯示第一張卡
+      // 🔥 先預載，再顯示第一張
+    preloadImages(() => {
+        newCard();
+      });
   });
 
   // 點擊再刮一張

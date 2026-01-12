@@ -4,6 +4,41 @@
    ========================= */
 
 /* =========================
+   圖片預載快取
+   ========================= */
+
+const imageCache = {};
+let imagesLoaded = false;
+
+function preloadImages(callback) {
+  const allImages = [
+    "img/cover.png",
+    ...cardPool.common,
+    ...cardPool.rare,
+    ...cardPool.super
+  ];
+
+  let loaded = 0;
+
+  allImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+
+    img.onload = () => {
+      loaded++;
+      if (loaded === allImages.length) {
+        imagesLoaded = true;
+        console.log("✅ 所有刮刮卡圖片已預載完成");
+        callback && callback();
+      }
+    };
+
+    imageCache[src] = img;
+  });
+}
+
+
+/* =========================
    🎁 動態卡池設定
    ========================= */
 
@@ -75,7 +110,10 @@ function newCard() {
   canvas.style.opacity = 1;
 
   const card = weightedRandom();
-  document.getElementById("prizeImg").src = card.img;
+
+  // 🔥 使用預載圖片
+  const prizeImg = document.getElementById("prizeImg");
+  prizeImg.src = imageCache[card.img].src;
 
   setupCanvas();
 }
@@ -87,27 +125,23 @@ function newCard() {
 function setupCanvas() {
   const rect = canvas.parentElement.getBoundingClientRect();
 
-  // 直接用 cardBox 寬高，保證 canvas 與 prizeImg 一樣大小
   canvas.width = rect.width;
   canvas.height = rect.height;
 
-  const cover = new Image();
-  cover.src = "img/cover.png";
+  const cover = imageCache["img/cover.png"];
 
-  cover.onload = () => {
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.globalCompositeOperation = "source-over";
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.globalCompositeOperation = "source-over";
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 🔹 drawImage 使用 canvas 寬高填滿
-    ctx.drawImage(cover, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(cover, 0, 0, canvas.width, canvas.height);
 
-    ctx.globalCompositeOperation = "destination-out";
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.lineWidth = BRUSH_SIZE;
-  };
+  ctx.globalCompositeOperation = "destination-out";
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.lineWidth = BRUSH_SIZE;
 }
+
 
 /* =========================
    刮刮邏輯（線刮 + 金粉）

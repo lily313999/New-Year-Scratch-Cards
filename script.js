@@ -49,7 +49,7 @@ const cardPool = {
 };
 
 // 動態產生卡片名稱（請自行替換成實際圖片路徑）
-for (let i = 1; i <= 9; i++) cardPool.common.push(`img/common${i}.png`);
+for (let i = 1; i <= 22; i++) cardPool.common.push(`img/common${i}.png`);
 for (let i = 1; i <= 2; i++) cardPool.rare.push(`img/rare${i}.png`);
 for (let i = 1; i <= 2; i++) cardPool.super.push(`img/super${i}.png`);
 

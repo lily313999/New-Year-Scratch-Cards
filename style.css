@@ -192,3 +192,74 @@ canvas {
     );
   }
 }
+
+
+/* ===== 全螢幕特效層 ===== */
+.effect-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* 金色煙火 */
+.gold-spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: gold;
+  border-radius: 50%;
+  animation: explode 1.5s ease-out infinite;
+}
+
+@keyframes explode {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* 愛心 */
+.heart {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: pink;
+  transform: rotate(45deg);
+  animation: floatUp 3s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: pink;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -8px;
+  left: 0;
+}
+
+.heart::after {
+  left: -8px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) rotate(45deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20vh) rotate(45deg);
+    opacity: 0;
+  }
+}

@@ -9,6 +9,7 @@
 
 const nicknameRewards = {
   "吟遊": ["img/img01.png"],
+  "輕": ["img/rare6.png"],
   "🐸🐸🐸": ["img/img4253654878.png"]
 
 };

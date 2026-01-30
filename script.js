@@ -13,6 +13,23 @@ const nicknameRewards = {
 
 };
 
+
+/* =========================
+   🎵 背景音樂
+   ========================= */
+
+const bgm = new Audio("img/今晚打老虎.mp3");
+bgm.loop = true;
+bgm.volume = 0.4; // 0 ~ 1，可自行調整
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    bgm.pause();
+  } else {
+    bgm.play().catch(() => {});
+  }
+});
+
 /* =========================
    圖片預載快取
    ========================= */
@@ -248,3 +265,4 @@ function resetDraw() {
   isDrawing = false;
   lastX = lastY = null;
 }
+

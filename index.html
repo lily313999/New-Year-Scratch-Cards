@@ -13,7 +13,7 @@
   <!-- 起始畫面 -->
   <div id="startScreen" class="screen start-screen">
     <img src="img/banner.png" class="banner">
-    <h1>🧧 新年刮刮樂</h1>
+
     <input id="nickname" placeholder="輸入暱稱">
     <button id="startBtn">開始刮獎</button>
   </div>
@@ -50,6 +50,10 @@
 
     document.getElementById("startScreen").classList.add("hidden");
     document.getElementById("gameScreen").classList.remove("hidden");
+
+    // 🎵 使用者互動後播放背景音樂（不會被擋）
+    bgm.play().catch(() => {});
+
 
       // 🔥 先預載，再顯示第一張
     preloadImages(() => {

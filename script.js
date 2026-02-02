@@ -10,6 +10,8 @@
 const nicknameRewards = {
   "吟遊": ["img/img01.png"],
   "一隻刺": ["img/img1106.png"],
+  "家和": ["img/common31.png"],
+  "睏睏": ["img/common30.png"],
   "輕": ["img/img02.png","img/img03.png","img/rare6.png"],
   "🐸🐸🐸": ["img/img4253654878.png"]
 

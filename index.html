@@ -34,6 +34,11 @@
     <div id="playerName"></div>
 
     <div id="cardBox">
+
+        <div id="loadingLayer">
+        <img src="img/loading.png" alt="載入中">
+        </div>
+
       <img id="prizeImg">
       <canvas id="scratchCanvas"></canvas>
     </div>
@@ -64,6 +69,9 @@
 
       // 🔥 先預載，再顯示第一張
     preloadImages(() => {
+        document.getElementById("loadingLayer").style.display = "none";
+        document.getElementById("prizeImg").style.opacity = 1;
+        document.getElementById("scratchCanvas").style.opacity = 1;
         newCard();
       });
   });

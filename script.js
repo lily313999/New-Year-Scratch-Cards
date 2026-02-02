@@ -9,6 +9,7 @@
 
 const nicknameRewards = {
   "吟遊": ["img/img01.png"],
+  "一隻刺": ["img/img1106.png"],
   "輕": ["img/img02.png","img/img03.png","img/rare6.png"],
   "🐸🐸🐸": ["img/img4253654878.png"]
 
@@ -69,8 +70,8 @@ const cardPool = {
   super: []
 };
 
-for (let i = 1; i <= 28; i++) cardPool.common.push(`img/common${i}.png`);
-for (let i = 1; i <= 7; i++) cardPool.rare.push(`img/rare${i}.png`);
+for (let i = 1; i <= 31; i++) cardPool.common.push(`img/common${i}.png`);
+for (let i = 1; i <= 11; i++) cardPool.rare.push(`img/rare${i}.png`);
 for (let i = 1; i <= 2; i++) cardPool.super.push(`img/super${i}.png`);
 
 /* =========================

@@ -17,6 +17,27 @@ body {
   align-items: center;
 }
 
+/* ===== 載入中遮罩 ===== */
+#loadingLayer {
+  position: absolute;
+  inset: 0;
+  background: #000;              /* 可改成透明或深色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#loadingLayer img {
+  width: 60%;
+  max-width: 220px;
+}
+
+#prizeImg,
+#scratchCanvas {
+  opacity: 0;
+}
+
 /* =========================
    主容器
    ========================= */

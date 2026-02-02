@@ -21,7 +21,7 @@ body {
 #loadingLayer {
   position: absolute;
   inset: 0;
-  background: #000;              /* 可改成透明或深色 */
+  background: #f3c0b9;              /* 可改成透明或深色 */
   display: flex;
   justify-content: center;
   align-items: center;

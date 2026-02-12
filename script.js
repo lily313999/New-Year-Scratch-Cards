@@ -75,8 +75,8 @@ const cardPool = {
   super: []
 };
 
-for (let i = 1; i <= 38; i++) cardPool.common.push(`img/common${i}.png`);
-for (let i = 1; i <= 11; i++) cardPool.rare.push(`img/rare${i}.png`);
+for (let i = 1; i <= 43; i++) cardPool.common.push(`img/common${i}.png`);
+for (let i = 1; i <= 12; i++) cardPool.rare.push(`img/rare${i}.png`);
 for (let i = 1; i <= 2; i++) cardPool.super.push(`img/super${i}.png`);
 
 /* =========================
